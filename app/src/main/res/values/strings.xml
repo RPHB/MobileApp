@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Beyoubet</string>
+    <string name="url">http://8d7183cd.ngrok.io</string>
+    <string name="teamTextView">Liste des équipes</string>
+    <string name="matchTextView">Liste des match</string>
+    <string name="inscriptionButton">Pas encore inscrit ?</string>
+    <string name="connectionButton">Connexion</string>
+    <string name="validateInscriptionButton">S\'inscrire</string>
+    <string name="connectionEmail">Adresse Email</string>
+    <string name="connectionEmailConfirmation">Confirmer Adresse Email</string>
+    <string name="connectionPwd">Mot de passe</string>
+    <string name="connectionPwdConfirmation">Confirmer Mot de passe</string>
+    <string name="remmemberCheckBox">Se souvenir de moi</string>
+</resources>
