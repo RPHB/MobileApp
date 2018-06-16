@@ -1,5 +1,6 @@
 package tptest.test.esgi.com.beyoubet
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +19,7 @@ class MatchListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.match_list_activity)
         val value = intent.getIntExtra("VALUE", 118)
         val urlTxt = getString(R.string.url)+"/match/"+value.toString()
 
@@ -40,6 +42,7 @@ class MatchListActivity : AppCompatActivity() {
                    val rootObject= JSONObject()
                    rootObject.put("date",date)
                    rootObject.put("score",score)
+                   rootObject.put("match",match)
                    myListObject.add(rootObject)
                    resultText=match
 //                   resultText=date + " " + match + " " +score + "\n"
@@ -50,13 +53,27 @@ class MatchListActivity : AppCompatActivity() {
                matchList!!.setAdapter(adapter)
                
                matchList.setOnItemClickListener { adapterView, view, i, l ->
-                   Log.i("WEB_VIEW_TEST", myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString())
-                   Toast.makeText(this, myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString() , Toast.LENGTH_SHORT).show()
+//                   if (myListObject[i]["score"].toString() =="-")
+//                   {
+                       val intent = Intent(this, MatchDetailActivity::class.java)
+                        intent.putExtra("score", myListObject[i]["score"].toString())
+                        intent.putExtra("team1", myListObject[i]["match"].toString())
+                        intent.putExtra("team2", myListObject[i]["match"].toString())
+                        intent.putExtra("date", myListObject[i]["date"].toString())
+                       startActivity(intent)
+//                   }
+//                   else
+//                   {
+//                       Log.i("WEB_VIEW_TEST", myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString())
+//                       Toast.makeText(this, myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString() , Toast.LENGTH_SHORT).show()
+//                   }
+
                }
+
            })
        }).start()
 
-        setContentView(R.layout.match_list_activity)
+
     }
 
 }

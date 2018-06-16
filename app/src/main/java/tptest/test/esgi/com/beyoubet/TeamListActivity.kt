@@ -4,17 +4,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ListView
-import android.widget.Toast
 import org.json.JSONObject
 import java.net.URL
 import android.widget.ArrayAdapter
-import android.R.attr.name
-import android.content.Context
 import android.content.Intent
-import android.widget.TextView
 
 
-class MainActivity : AppCompatActivity() {
+class TeamListActivity : AppCompatActivity() {
 
 
 
@@ -51,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     myList.add(team)
 
                 }
-                val adapter = ArrayAdapter<String>(this@MainActivity, android.R.layout.simple_list_item_1, myList)
+                val adapter = ArrayAdapter<String>(this@TeamListActivity, android.R.layout.simple_list_item_1, myList)
                 matchList!!.setAdapter(adapter)
 
                 matchList.setOnItemClickListener { adapterView, view, i, l ->
@@ -65,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             })
         }).start()
 
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.team_list_activity)
     }
 
 }

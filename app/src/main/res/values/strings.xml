@@ -1,14 +1,40 @@
 <resources>
     <string name="app_name">Beyoubet</string>
-    <string name="url">http://8d7183cd.ngrok.io</string>
+    <string name="url">http://6bad9d7d.ngrok.io</string>
     <string name="teamTextView">Liste des équipes</string>
     <string name="matchTextView">Liste des match</string>
     <string name="inscriptionButton">Pas encore inscrit ?</string>
     <string name="connectionButton">Connexion</string>
     <string name="validateInscriptionButton">S\'inscrire</string>
-    <string name="connectionEmail">Adresse Email</string>
+    <string name="connectionPseudo">Pseudo</string>
+    <string name="connectionEmail">Email</string>
+    <string name="blanckPwd">Veuillez remplir tous les champs</string>
     <string name="connectionEmailConfirmation">Confirmer Adresse Email</string>
+    <string name="errorMail">Les deux emails doivent être iddentiques</string>
+    <string name="inscriptionSucceded">Vous êtes bien inscrit</string>
+    <string name="duplicateEmail">Un utilisateur utilise déjà cette adresse email</string>
+    <string name="duplicatePseudo">Un utilisateur utilise déjà ce pseudo</string>
+    <string name="errorPwd">Les deux mots de passe doivent être iddentiques</string>
     <string name="connectionPwd">Mot de passe</string>
     <string name="connectionPwdConfirmation">Confirmer Mot de passe</string>
     <string name="remmemberCheckBox">Se souvenir de moi</string>
+    <string name="title_activity_match_detail">MatchDetailActivity</string>
+    <string name="scoreText">Score</string>
+    <string name="gotobetButton">Placer un pari</string>
+    <string name="tab_a_label">teststring</string>
+    <string name="tab_b_label">teststring</string>
+    <string name="tab_c_label">teststring</string>
+    <string name="onglet_accueil">Accueil</string>
+    <string name="onglet_profil">Mon profil</string>
+    <string name="onglet_sport">Sports</string>
+    <string name="onglet_historique">Historique</string>
+    <string name="message_accueil">Ceci est la page d\'accueil</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

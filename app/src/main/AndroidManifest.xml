@@ -3,6 +3,8 @@
     package="tptest.test.esgi.com.beyoubet">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -11,16 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".TeamListActivity" />
+        <activity android:name=".MatchListActivity" />
+        <activity android:name=".ConnectionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MatchListActivity" />
-        <activity android:name=".ConnectionActivity" />
-        <activity android:name=".InscriptionActivity"></activity>
+        <activity android:name=".InscriptionActivity" />
+        <activity
+            android:name=".MatchDetailActivity"
+            android:label="@string/title_activity_match_detail" />
+        <activity android:name=".accueilActivity" />
+        <activity android:name=".test"></activity>
     </application>
 
 </manifest>

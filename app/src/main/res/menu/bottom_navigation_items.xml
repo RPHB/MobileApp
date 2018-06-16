@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/action_ongle_0" android:icon="@drawable/icon_home" android:title="@string/onglet_accueil"/>
+<item android:id="@+id/action_ongle_1" android:icon="@drawable/icon_profil" android:title="@string/onglet_profil"/>
+<item android:id="@+id/action_ongle_2" android:icon="@drawable/icon_history" android:title="@string/onglet_historique"/>
+<item android:id="@+id/action_ongle_3" android:icon="@drawable/icon_sport" android:title="@string/onglet_sport"/>
+</menu>
