@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Beyoubet</string>
-    <string name="url">http://6bad9d7d.ngrok.io</string>
+    <string name="url">http://ece839aa.ngrok.io</string>
     <string name="teamTextView">Liste des équipes</string>
     <string name="matchTextView">Liste des match</string>
     <string name="inscriptionButton">Pas encore inscrit ?</string>
@@ -27,6 +27,7 @@
     <string name="onglet_accueil">Accueil</string>
     <string name="onglet_profil">Mon profil</string>
     <string name="onglet_sport">Sports</string>
+    <string name="onglet_social">Social</string>
     <string name="onglet_historique">Historique</string>
     <string name="message_accueil">Ceci est la page d\'accueil</string>
     <!--

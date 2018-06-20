@@ -12,6 +12,7 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_accueil.*
 import org.json.JSONObject
 import java.net.URL
 
@@ -38,13 +39,13 @@ class MatchListFragment : Fragment() {
 
     private val teamId : Int = 0
 
-    fun newInstance(idteam: Int): MatchListFragment {
-        val fragment = MatchListFragment()
-        val args = Bundle()
-        args.putInt("teamId", idteam)
-        fragment.arguments = args
-        return fragment
-    }
+//    fun newInstance(idteam: Int): MatchListFragment {
+//        val fragment = MatchListFragment()
+//        val args = Bundle()
+//        args.putInt("teamId", idteam)
+//        fragment.arguments = args
+//        return fragment
+//    }
 
     var title: TextView? = null
     var mainFragmentCallback: MainFragmentCallback? = null
@@ -72,7 +73,7 @@ class MatchListFragment : Fragment() {
 //        val value = intent.getIntExtra("VALUE", 118)
         val urlTxt = getString(R.string.url)+"/match/"+value.toString()
 
-
+       // (activity as accueilActivity).getUserid()
         Log.i("URLURLURLURLURL", urlTxt)
         Thread({
             val textURL = URL( urlTxt).readText()

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/action_ongle_0" android:icon="@drawable/icon_home" android:title="@string/onglet_accueil"/>
-<item android:id="@+id/action_ongle_1" android:icon="@drawable/icon_profil" android:title="@string/onglet_profil"/>
-<item android:id="@+id/action_ongle_2" android:icon="@drawable/icon_history" android:title="@string/onglet_historique"/>
-<item android:id="@+id/action_ongle_3" android:icon="@drawable/icon_sport" android:title="@string/onglet_sport"/>
+<item android:id="@+id/onglet_accueil" android:icon="@drawable/icon_home" android:title="@string/onglet_accueil"/>
+<item android:id="@+id/onglet_profil" android:icon="@drawable/icon_profil" android:title="@string/onglet_profil"/>
+<item android:id="@+id/onglet_historique" android:icon="@drawable/icon_history" android:title="@string/onglet_historique"/>
+<item android:id="@+id/onglet_sport" android:icon="@drawable/icon_sport" android:title="@string/onglet_sport"/>
+<item android:id="@+id/onglet_social" android:icon="@drawable/icon_social" android:title="@string/onglet_social"/>
 </menu>

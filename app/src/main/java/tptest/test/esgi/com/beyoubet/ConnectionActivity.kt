@@ -10,6 +10,7 @@ import java.net.URL
 
 class ConnectionActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.connection_activity)
@@ -36,16 +37,17 @@ class ConnectionActivity : AppCompatActivity() {
                 val textURL = URL( urlTxt).readText()
 
                 runOnUiThread({
-                    if (textURL=="true")
+                    val jsonURL = JSONObject(textURL)
+                    if (jsonURL["res"].toString()=="true")
                     {
 //                        val intent = Intent(this, TeamListActivity::class.java)
                         val intent = Intent(this, accueilActivity::class.java)
-//                        intent.putExtra("VALUE", myListObject[i]["value"].toString().toInt())
+                        intent.putExtra("userId", jsonURL["id"].toString().toInt())
                         startActivity(intent)
                     }
                     else
                     {
-                        Toast.makeText(this,textURL,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,jsonURL["res"].toString(),Toast.LENGTH_SHORT).show()
                     }
 
                 })

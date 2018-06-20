@@ -37,6 +37,8 @@ class AccueilFragment : Fragment() {
 
     private val TITLE = "TITLE"
 
+
+
     fun newInstance1(title: String): AccueilFragment {
         val fragment = AccueilFragment()
         val args = Bundle()
