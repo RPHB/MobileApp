@@ -31,6 +31,8 @@
     <string name="onglet_historique">Historique</string>
     <string name="message_accueil">Ceci est la page d\'accueil</string>
     <string name="betSucces">Votre pari a bien été pris en compte</string>
+    <string name="youVoted">Vous avez voté</string>
+    <string name="betListView">Liste de mes paris</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

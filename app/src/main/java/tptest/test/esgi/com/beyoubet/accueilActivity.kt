@@ -34,6 +34,11 @@ class accueilActivity : AppCompatActivity(), AccueilFragment.MainFragmentCallbac
                 R.id.onglet_profil -> {
                     Toast.makeText(this,"onglet1", Toast.LENGTH_SHORT).show()
                 }
+                R.id.onglet_historique -> {
+                    supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragmentLayout, History_fragment())
+                            .commit()
+                }
                 R.id.onglet_social -> {
                     Toast.makeText(this,"onglet2", Toast.LENGTH_SHORT).show()
                 }
