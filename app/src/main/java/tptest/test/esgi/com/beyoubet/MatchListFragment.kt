@@ -39,14 +39,22 @@ class MatchListFragment : Fragment() {
 
     private val teamId : Int = 0
 
-//    fun newInstance(idteam: Int): MatchListFragment {
-//        val fragment = MatchListFragment()
-//        val args = Bundle()
-//        args.putInt("teamId", idteam)
-//        fragment.arguments = args
-//        return fragment
-//    }
-
+    fun newInstanceBetFragment(teams: String, date : String): BetFragment {
+        val fragment = BetFragment()
+        val args = Bundle()
+        val team1 = teams.substring(0 .. teams.indexOf("-") - 1)
+        val team2 = teams.substring(teams.indexOf("-") + 2)
+        var dateToSend =  date.substring(date.indexOf(" ") + 1)
+        dateToSend =  dateToSend.substring(0 .. dateToSend.indexOf(" ") - 1)
+        val jour = dateToSend.substring(0 .. 1)
+        val mois = dateToSend.substring(3 .. 4)
+        val annee = dateToSend.substring(6 .. 9)
+        args.putString("team1", team1)
+        args.putString("team2", team2)
+        args.putString("date", annee+"-"+mois+"-"+jour)
+        fragment.arguments = args
+        return fragment
+    }
     var title: TextView? = null
     var mainFragmentCallback: MainFragmentCallback? = null
 
@@ -64,7 +72,16 @@ class MatchListFragment : Fragment() {
         super.onDetach()
         mainFragmentCallback = null
     }
-
+    fun containDigit(str : String) : Boolean
+    {
+        var i = 0
+       for (i in 0 .. 9)
+        {
+            if (str.indexOf('0' + i) != -1)
+                return true;
+        }
+        return false
+    }
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         title = view!!.findViewById<View>(R.id.title) as? TextView
@@ -104,20 +121,21 @@ class MatchListFragment : Fragment() {
                 matchList!!.setAdapter(adapter)
 
                 matchList!!.setOnItemClickListener { adapterView, view, i, l ->
-                    //                   if (myListObject[i]["score"].toString() =="-")
-    //                   {
-//                    val intent = Intent(this, MatchDetailActivity::class.java)
-//                    intent.putExtra("score", myListObject[i]["score"].toString())
-//                    intent.putExtra("team1", myListObject[i]["match"].toString())
-//                    intent.putExtra("team2", myListObject[i]["match"].toString())
-//                    intent.putExtra("date", myListObject[i]["date"].toString())
-//                    startActivity(intent)
-    //                   }
-    //                   else
-    //                   {
-    //                       Log.i("WEB_VIEW_TEST", myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString())
-                           Toast.makeText(activity.applicationContext, myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString() , Toast.LENGTH_SHORT).show()
-    //                   }
+
+                           if (containDigit(myListObject[i]["score"].toString()))
+                           {
+                               Toast.makeText(activity.applicationContext, myListObject[i]["date"].toString() + "  " + myListObject[i]["score"].toString() , Toast.LENGTH_SHORT).show()
+                           }
+                            else
+                           {
+//                               Toast.makeText(activity.applicationContext, myListObject[i]["match"].toString() , Toast.LENGTH_SHORT).show()
+
+                               activity.supportFragmentManager.beginTransaction()
+                                       .replace(R.id.fragmentLayout, newInstanceBetFragment(myListObject[i]["match"].toString(),myListObject[i]["date"].toString()))
+                                       .commit()
+
+                           }
+
 
                 }
 

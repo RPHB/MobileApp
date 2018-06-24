@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Beyoubet</string>
-    <string name="url">http://ece839aa.ngrok.io</string>
+    <string name="url">http://f717350a.ngrok.io</string>
     <string name="teamTextView">Liste des équipes</string>
     <string name="matchTextView">Liste des match</string>
     <string name="inscriptionButton">Pas encore inscrit ?</string>
@@ -30,6 +30,7 @@
     <string name="onglet_social">Social</string>
     <string name="onglet_historique">Historique</string>
     <string name="message_accueil">Ceci est la page d\'accueil</string>
+    <string name="betSucces">Votre pari a bien été pris en compte</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
