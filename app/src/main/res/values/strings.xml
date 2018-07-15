@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Beyoubet</string>
-    <string name="url">http://48c932b4.ngrok.io</string>
+    <string name="app_name">BeYourBet</string>
+    <string name="url">http://81c1ec9b.ngrok.io</string>
     <string name="teamTextView">Liste des équipes</string>
     <string name="matchTextView">Liste des match</string>
     <string name="inscriptionButton">Pas encore inscrit ?</string>
+    <string name="coinsBet">Jetons pariés</string>
     <string name="connectionButton">Connexion</string>
     <string name="validateInscriptionButton">S\'inscrire</string>
     <string name="connectionPseudo">Pseudo</string>
@@ -36,6 +37,14 @@
     <string name="friendButton">Nouvel ami</string>
     <string name="unknownUser">Cet utilisateur n\'existe pas</string>
     <string name="invitationSent">Une demande d\'ami a été envoyée</string>
+    <string name="modifierProfil">Modifier le profil</string>
+    <string name="newPwd">Nouveau mot de passe</string>
+    <string name="newPwdConf">Confirmer mot de passe</string>
+    <string name="currPwd">Mot de passe actuel</string>
+    <string name="newMail">Nouveau mail</string>
+    <string name="newMailConf">Confirmer nouveau mail</string>
+    <string name="newPseudo">Nouveau Pseudo</string>
+    <string name="tmp">Nouveau Pseudo</string>
 
     <!--
     This string is used for square devices and overridden by hello_world in

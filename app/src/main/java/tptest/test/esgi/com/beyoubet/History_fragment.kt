@@ -83,7 +83,7 @@ class History_fragment: Fragment() {
                 var betsList = view!!.findViewById<ListView>(R.id.betListView) as? ListView
                 var myList: MutableList<String> = mutableListOf<String>()
                 var myListObject: MutableList<JSONObject> = mutableListOf<JSONObject>()
-                for (i in 1 .. jsonSize)
+                for (i in 0 .. jsonSize)
                 {
                     var cur= JSONObject(jsonObj["child"+i].toString())
                     var team1=cur["team1"].toString()

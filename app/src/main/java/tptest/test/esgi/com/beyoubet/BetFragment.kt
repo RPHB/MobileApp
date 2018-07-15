@@ -82,9 +82,11 @@ class BetFragment : Fragment() {
         var nameTeam2 = view!!.findViewById<TextView>(R.id.nomEquipe2) as? TextView
         var scoreTeam1 = view!!.findViewById<EditText>(R.id.scoreEquipe1) as? EditText
         var scoreTeam2 = view!!.findViewById<EditText>(R.id.scoreEquipe2) as? EditText
+        var coins = view!!.findViewById<EditText>(R.id.coins) as? EditText
         val team1=arguments.getString("team1", "0")
         val team2=arguments.getString("team2", "0")
         val date=arguments.getString("date", "0")
+        val matchId=arguments.getString("matchId", "0")
         nameTeam1!!.text = "Score " + team1
         nameTeam2!!.text = "Score " + team2
         val userId = (activity as accueilActivity).getUserid()
@@ -95,6 +97,7 @@ class BetFragment : Fragment() {
             var choice = 0;
             val score1 = scoreTeam1!!.text.toString()
             val score2 = scoreTeam2!!.text.toString()
+            val coinsValue = coins!!.text.toString()
             if (score1.length == 0 || score2.length == 0)
             {
                 Toast.makeText(activity.applicationContext, R.string.blanckPwd , Toast.LENGTH_SHORT).show()
@@ -103,11 +106,12 @@ class BetFragment : Fragment() {
             }
             val score1int=score1.toInt()
             val score2int=score2.toInt()
+            val coinsInt=coinsValue.toInt()
 
             if (score1int>score2int) choice = 1
             else if (score1int<score2int) choice = 2
 
-            val urlTxt = getString(R.string.url)+"/bets/createApp/"+ userId + "/" +  choice + "/" + date + "/" +team1 + "/" + team2
+            val urlTxt = getString(R.string.url)+"/bets/create/"+matchId+"/"+ userId + "/" + coinsInt + "/" + choice + "/0"
             Thread({
 
                 val textURL = URL( urlTxt).readText()

@@ -67,7 +67,7 @@ class TeamListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         title = view!!.findViewById<View>(R.id.title) as? TextView
 
-        val urlTxt = getString(R.string.url)+"/match"
+        val urlTxt = getString(R.string.url)+"/match/teams"
 
 
         Log.i("URLURLURLURLURL", urlTxt)
@@ -81,11 +81,11 @@ class TeamListFragment : Fragment() {
                 var matchList = view!!.findViewById<ListView>(R.id.teamList) as? ListView
                 var myList: MutableList<String> = mutableListOf<String>()
                 var myListObject: MutableList<JSONObject> = mutableListOf<JSONObject>()
-                for (i in 1 .. jsonSize)
+                for (i in 0 .. jsonSize)
                 {
                     var cur= JSONObject(jsonObj["child"+i].toString())
-                    var team=cur["team"].toString()
-                    var value=cur["value"].toString()
+                    var team=cur["name"].toString()
+                    var value=cur["id"].toString()
                     val rootObject= JSONObject()
                     rootObject.put("team",team)
                     rootObject.put("value",value)
@@ -102,6 +102,7 @@ class TeamListFragment : Fragment() {
 
                     activity.supportFragmentManager.beginTransaction()
                             .replace(R.id.fragmentLayout, newInstanceMatchListFragment(myListObject[i]["value"].toString().toInt()))
+                            .addToBackStack(null)
                             .commit()
 //                    Log.i("WEB_VIEW_TEST", myListObject[i]["value"].toString())
 //                    Toast.makeText(activity.applicationContext, myListObject[i]["value"].toString() , Toast.LENGTH_SHORT).show()

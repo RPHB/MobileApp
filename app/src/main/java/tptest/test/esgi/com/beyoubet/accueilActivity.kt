@@ -29,19 +29,25 @@ class accueilActivity : AppCompatActivity(), AccueilFragment.MainFragmentCallbac
 //                    Toast.makeText(this,"onglet0", Toast.LENGTH_SHORT).show()
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.fragmentLayout, AccueilFragment())
+                            .addToBackStack(null)
                             .commit()
                 }
                 R.id.onglet_profil -> {
-                    Toast.makeText(this,"onglet1", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                            .replace(R.id.fragmentLayout, ProfilFragment())
+                            .addToBackStack(null)
+                            .commit()
                 }
                 R.id.onglet_social -> {
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.fragmentLayout, FriendFragment())
+                            .addToBackStack(null)
                             .commit()
                 }
                 R.id.onglet_historique -> {
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.fragmentLayout, History_fragment())
+                            .addToBackStack(null)
                             .commit()
                 }
                 R.id.onglet_social -> {
@@ -51,6 +57,7 @@ class accueilActivity : AppCompatActivity(), AccueilFragment.MainFragmentCallbac
                 R.id.onglet_sport -> {
                     supportFragmentManager.beginTransaction()
                             .replace(R.id.fragmentLayout, TeamListFragment())
+                            .addToBackStack(null)
                             .commit()
                 }
 

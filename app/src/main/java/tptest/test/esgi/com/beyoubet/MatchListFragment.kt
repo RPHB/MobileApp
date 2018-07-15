@@ -39,19 +39,23 @@ class MatchListFragment : Fragment() {
 
     private val teamId : Int = 0
 
-    fun newInstanceBetFragment(teams: String, date : String): BetFragment {
+    fun newInstanceBetFragment(matchId:String, teams: String,teamname1:String,teamname2:String, date : String): BetFragment {
         val fragment = BetFragment()
         val args = Bundle()
-        val team1 = teams.substring(0 .. teams.indexOf("-") - 1)
-        val team2 = teams.substring(teams.indexOf("-") + 2)
+        val team1 = teamname1
+        val team2 = teamname2
+
         var dateToSend =  date.substring(date.indexOf(" ") + 1)
-        dateToSend =  dateToSend.substring(0 .. dateToSend.indexOf(" ") - 1)
-        val jour = dateToSend.substring(0 .. 1)
-        val mois = dateToSend.substring(3 .. 4)
-        val annee = dateToSend.substring(6 .. 9)
+        Toast.makeText(activity.applicationContext, date , Toast.LENGTH_SHORT).show()
+
+        dateToSend =  dateToSend.substring(0 .. dateToSend.indexOf("T") - 1)
+//        val jour = dateToSend.substring(0 .. 1)
+//        val mois = dateToSend.substring(3 .. 4)
+//        val annee = dateToSend.substring(6 .. 9)
         args.putString("team1", team1)
         args.putString("team2", team2)
-        args.putString("date", annee+"-"+mois+"-"+jour)
+        args.putString("date", dateToSend)
+        args.putString("matchId", matchId)
         fragment.arguments = args
         return fragment
     }
@@ -105,16 +109,22 @@ class MatchListFragment : Fragment() {
                 {
                     var cur=JSONObject(jsonObj["child"+i].toString())
                     var date=cur["date"].toString()
-                    var match=cur["match"].toString()
+                    var team1=cur["teamname1"].toString()
+                    var team2=cur["teamname2"].toString()
+                    var matchId=cur["matchId"].toString()
                     var score=cur["score"].toString()
                     val rootObject= JSONObject()
+                    resultText=team1 + " - " + team2
                     rootObject.put("date",date)
                     rootObject.put("score",score)
-                    rootObject.put("match",match)
+                    rootObject.put("teamname1",team1)
+                    rootObject.put("teamname2",team2)
+                    rootObject.put("match",resultText)
+                    rootObject.put("matchId",matchId)
                     myListObject.add(rootObject)
-                    resultText=match
+
     //                   resultText=date + " " + match + " " +score + "\n"
-                    myList.add(match)
+                    myList.add(resultText)
 
                 }
                 val adapter = ArrayAdapter<String>(activity.applicationContext, android.R.layout.simple_list_item_1, myList)
@@ -131,7 +141,8 @@ class MatchListFragment : Fragment() {
 //                               Toast.makeText(activity.applicationContext, myListObject[i]["match"].toString() , Toast.LENGTH_SHORT).show()
 
                                activity.supportFragmentManager.beginTransaction()
-                                       .replace(R.id.fragmentLayout, newInstanceBetFragment(myListObject[i]["match"].toString(),myListObject[i]["date"].toString()))
+                                       .replace(R.id.fragmentLayout, newInstanceBetFragment(myListObject[i]["matchId"].toString(),myListObject[i]["match"].toString(),myListObject[i]["teamname1"].toString(),myListObject[i]["teamname2"].toString(),myListObject[i]["date"].toString()))
+                                       .addToBackStack(null)
                                        .commit()
 
                            }
