@@ -98,7 +98,7 @@ class BetFragment : Fragment() {
             val score1 = scoreTeam1!!.text.toString()
             val score2 = scoreTeam2!!.text.toString()
             val coinsValue = coins!!.text.toString()
-            if (score1.length == 0 || score2.length == 0)
+            if (score1.length == 0 || score2.length == 0|| coinsValue.length == 0)
             {
                 Toast.makeText(activity.applicationContext, R.string.blanckPwd , Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
