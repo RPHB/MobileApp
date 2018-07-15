@@ -7,9 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import org.json.JSONObject
 import java.net.URL
 
@@ -34,6 +32,7 @@ class ProfilFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         var coins = view!!.findViewById<TextView>(R.id.coinTextView) as? TextView
         val userId=(activity as accueilActivity).getUserid()
+        var dataButton = view!!.findViewById<Button>(R.id.buttonRgpd) as? Button
         val urlTxt = getString(R.string.url)+"/users/getTokens/" + userId
         Thread({
             val textURL = URL( urlTxt).readText()
@@ -47,6 +46,28 @@ class ProfilFragment : Fragment() {
 
             })
         }).start()
+        dataButton!!.setOnClickListener{
+            //            Toast.makeText(activity.applicationContext, arguments.getString("date").toString() , Toast.LENGTH_SHORT).show()
+
+
+
+
+            val urlTxt = getString(R.string.url)+"/users/RGPDgiveApp/"+userId
+            Thread({
+
+                val textURL = URL( urlTxt).readText()
+                activity.runOnUiThread({
+
+
+                    Toast.makeText(activity.applicationContext, "Vos informations vous ont été adressées par mail" , Toast.LENGTH_SHORT).show()
+
+
+                })
+            }).start()
+        }
+
+
+
     }
 
 
